@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :genders
   resources :items
   # resources :clothes
   get "items" => "items#index"

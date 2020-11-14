@@ -27,6 +27,7 @@ gem 'rack-cors'
 gem 'devise'
 gem 'devise_token_auth'
 gem 'jbuilder'
+gem 'seed-fu'
 gem 'carrierwave'
 
 group :development, :test do
