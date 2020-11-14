@@ -34,6 +34,7 @@ const routes = [
     name: 'TestImage',
     component: TestImage
   }
+
 ]
 
 const router = new VueRouter({
