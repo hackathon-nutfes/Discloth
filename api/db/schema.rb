@@ -50,6 +50,19 @@ ActiveRecord::Schema.define(version: 2020_11_14_141110) do
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
+ActiveRecord::Schema.define(version: 2020_11_14_134412) do
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "image"
+    t.integer "user_id"
+    t.integer "gender_id"
+    t.integer "brand_id"
+    t.integer "color_id"
+    t.integer "kind_id"
+    t.integer "season_id"
+    t.integer "size_id"
+    t.integer "design_id"
+    t.integer "price_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
