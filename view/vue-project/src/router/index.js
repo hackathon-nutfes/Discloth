@@ -4,6 +4,7 @@ import Welcome from '../views/Welcome.vue'
 import Mypage from '../views/Mypage.vue'
 import Analysis from '../views/Analysis.vue'
 import Display from '../views/Display.vue'
+import TestImage from '../views/TestImage.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,19 @@ const routes = [
     path: '/display',
     name: 'Display',
     component: Display
+  },
+  {
+    path: '/test-image',
+    name: 'TestImage',
+    component: TestImage
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
 
