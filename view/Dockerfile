@@ -1,11 +1,13 @@
-FROM node:12.18.4
+FROM node:12.18.1
 
-WORKDIR /app
+WORKDIR /app/vue-project
 
 RUN npm install -g @vue/cli
-RUN npm install 
 
-COPY ./package*.json /app/
 CMD ["/bin/sh"]
 
-RUN npm install axios
+COPY ./vue-project/package*.json /app/
+RUN npm install
+RUN npm install --save axios
+RUN npm install --save vuex-persistedstate
+
