@@ -1,47 +1,95 @@
  <template>
-  <v-container class="fill-height">
-  <v-row justify="center">
-    <v-dialog
-      v-model="dialog"
-      persistent
-      max-width="290"
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          Open Dialog
-        </v-btn>
-      </template>
-      <v-card>
-        <v-card-title class="headline">
-          Use Google's location service?
-        </v-card-title>
-        <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
+    <v-container>
+      <v-row justify="center">
+        <v-dialog
+          v-model="dialog"
+          persistent
+          max-width="400"
           >
-            Disagree
-          </v-btn>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Agree
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-row>   
-  </v-container>
+          <template v-slot:activator="{ on, attrs }">
+          <v-row></v-row>
+            <v-row>
+              <v-col cols="10"></v-col>
+              <v-col cols="1">
+                <v-btn
+                  color="orange"
+                  x-large dark
+                  fab
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                <v-icon dark>mdi-plus</v-icon>
+                </v-btn>
+              </v-col>
+               <v-col cols="1"></v-col>
+            </v-row>
+          </template>
+            <v-card>
+              <v-container>
+                <v-row>
+                  <v-col cols="1"></v-col>
+                  <v-col cols="10">
+                    <v-card-title class="headline">
+                      closetを買う(新規登録)
+                    </v-card-title>
+                    <v-card-text>
+                      <v-text-field
+                        label="フルネーム"
+                        v-model="name"
+                        clearable
+                        required
+                      ></v-text-field>
+                      <v-text-field
+                        label="メールアドレス"
+                        v-model="email"
+                        clearable
+                        required
+                      ></v-text-field>
+                      <v-text-field
+                        label="パスワード"
+                        v-model="password"
+                        :type="show_pass ? 'password' : 'text'"
+                        counter
+                        clearable
+                        @click:append="show_pass = !show_pass"
+                        required
+                      ></v-text-field>
+                      <v-text-field
+                        label="パスワードの再入力"
+                        v-model="password_confirmation"
+                        :type="show_pass_confirmation ? 'password' : 'text'"
+                        hint="確認してください"
+                        persistent-hint
+                        counter
+                        @click:append="show_pass_confirmation = !show_pass_confirmation"
+                        clearable
+                        required
+                        ></v-text-field>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-btn
+                        color="green darken-1"
+                        text
+                        @click="dialog = false"
+                      >
+                        キャンセル
+                      </v-btn>
+                      <v-btn
+                        color="green darken-1"
+                        text
+                        @click="dialog = false"
+                      >
+                        登録
+                      </v-btn>
+                    </v-card-actions>
+                  </v-col>
+                  <v-col cols="1"></v-col>
+                </v-row>
+              </v-container>
+            </v-card>
+        </v-dialog>
+      </v-row>   
+    </v-container>
  </template>
 
 <script>
