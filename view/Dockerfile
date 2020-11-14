@@ -5,7 +5,7 @@ WORKDIR /app
 RUN npm install -g @vue/cli
 RUN npm install 
 
-COPY ./vue-project/package*.json /app/
+COPY ./package*.json /app/
 CMD ["/bin/sh"]
 
 RUN npm install axios
