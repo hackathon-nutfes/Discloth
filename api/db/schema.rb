@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_165141) do
+ActiveRecord::Schema.define(version: 2020_11_15_035454) do
 
   create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_165141) do
     t.string "image"
     t.integer "user_id"
     t.integer "gender_id"
-    t.integer "brand_id"
+    t.string "brand"
     t.integer "color_id"
     t.integer "kind_id"
     t.integer "season_id"
