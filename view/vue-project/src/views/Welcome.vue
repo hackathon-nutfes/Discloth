@@ -31,7 +31,7 @@
 h1{
   color:white;
   text-align: center;
-  font-size: 110px;
+  font-size: 30px;
   padding: 15px 30px;
   position: absolute;
 	top: 50%;

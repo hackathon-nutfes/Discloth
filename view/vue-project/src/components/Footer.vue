@@ -52,10 +52,17 @@
        top
        right
        fab
+       @click.stop="dialog3 = true"
        >
         <v-icon>mdi-plus</v-icon>
     </v-btn>
-
+    <v-dialog
+      v-model="dialog3"
+      max-width="600"
+			hide-overlay
+    >
+    <register />
+   </v-dialog>
     <v-dialog
       v-model="dialog1"
       max-width="600"
@@ -78,15 +85,18 @@
 <script>
   import Analysis from './modal/Analysis.vue'
   import Display from './modal/Display.vue'
+  import register from './modal/register.vue'
   export default {
     components: {
       Analysis,
       Display,
+      register,
     },
     data () {
       return {
         dialog1: false,
 				dialog2: false,
+        dialog3: false,
       }
     },
   }

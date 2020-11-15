@@ -43,6 +43,7 @@
                                 <v-text-field
                                     label="パスワード"
                                     v-model="password"
+                                    :type="show_pass ? 'password' : 'text'"
                                     hint = "確認してください"
                                     persistent-hint
                                     @click:append="show_pass = !show_pass"
