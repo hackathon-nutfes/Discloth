@@ -7,4 +7,5 @@ class Item < ApplicationRecord
     belongs_to :price
     belongs_to :season
     belongs_to :size
+    belongs_to :user
 end
