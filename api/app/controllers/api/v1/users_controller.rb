@@ -10,4 +10,36 @@ class Api::V1::UsersController < ApplicationController
     @user = current_api_user
     render json: { data: @user }
   end
+
+  def get_user_items
+    #@user = current_api_user
+    @user = User.find(1)
+    @items = @user.items
+    data = []
+    set = []
+    for i in @items
+      @id = i.id
+      @color = i.color.name
+      @design = i.design.name
+      @price = i.price.name
+      @gender = i.gender.name
+      @size = i.size.name
+      @season = i.season.name
+      @kind = i.kind.name
+      @brand = i.brand
+      set = {
+        id: @id,
+        color: @color,
+        design: @design,
+        price: @price,
+        gender: @gender,
+        size: @size,
+        season: @season,
+        kind: @kind,
+        brand: @brand
+      }
+      data << set
+    end
+    render json: data 
+  end
 end
