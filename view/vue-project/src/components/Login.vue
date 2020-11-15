@@ -26,7 +26,6 @@
                  </v-row>
                 </template>
                         <v-card>
-                        <v-container>
                         <v-row>
                         <v-col cols="1"></v-col>
                         <v-col cols="10">
@@ -34,12 +33,6 @@
                                 closetを開く(ログイン)
                             </v-card-title>
                             <v-card-text>
-                                <v-text-field
-                                    label="フルネーム"
-                                    v-model="name"
-                                    required
-                                    clearable
-                                ></v-text-field>
                                 <v-text-field
                                     label="メールアドレス"
                                     background-color="white"
@@ -68,7 +61,7 @@
                                 <v-btn
                                     color="green darken-1"
                                     text
-                                    @click="dialog = false"
+                                    @click="submit"
                                 >
                                     ログイン
                                 </v-btn>
@@ -76,19 +69,70 @@
                         </v-col>
                         <v-col cols="1"></v-col>
                         </v-row>
-                        </v-container>
                         </v-card>
             </v-dialog>
-        </v-row>   
+        </v-row> 
     </v-container>
  </template>
 
 <script>
+import axios from 'axios'
 export default {
+    name: 'Login',
 	data () {
 		return {
-			dialog :false
+            email: [],
+            password: [],
+			dialog :false,
+            show_pass: true,
+            formHasErrors: false,
 		}
-	}
+	},
+
+   computed: {
+        form () {
+            return {
+                email: null,
+                password: null,
+            }
+        },
+    },
+
+    methods: {
+        open: function() {
+            this.show = true
+        },
+        cancel: function() {
+            Object.keys(this.form).forEach(f => {
+                this.$refs[f].reset()
+            })
+            this.show = false
+        },
+        submit: function() {
+
+            const url = 'http://localhost:3000/api/auth/sign_in'
+            var params = new URLSearchParams();
+            params.append('email', this.email);
+            params.append('password', this.password);
+            axios.defaults.headers.common['Content-Type'] = 'application/json';
+            axios.post(url, params).then(
+                (response) => {
+
+                    localStorage.setItem('access-token', response.headers['access-token'])
+                    localStorage.setItem('client', response.headers['client'])
+                    localStorage.setItem('uid', response.headers['uid'])
+                    localStorage.setItem('token-type', response.headers['token-type'])
+                    console.log(response)
+          console.log(response.headers['access-token'])
+          console.log(response.headers['client'])
+          console.log(response.headers['uid'])
+                    this.$router.push('Mypage')
+                },
+                (error) => {
+                return error
+                }
+            )
+        },
+    }
 }
 </script>

@@ -25,7 +25,6 @@
             </v-row>
           </template>
             <v-card>
-              <v-container>
                 <v-row>
                   <v-col cols="1"></v-col>
                   <v-col cols="10">
@@ -77,7 +76,7 @@
                       <v-btn
                         color="green darken-1"
                         text
-                        @click="dialog = false"
+                        @click="submit"
                       >
                         登録
                       </v-btn>
@@ -85,7 +84,6 @@
                   </v-col>
                   <v-col cols="1"></v-col>
                 </v-row>
-              </v-container>
             </v-card>
         </v-dialog>
       </v-row>   
@@ -93,11 +91,67 @@
  </template>
 
 <script>
+import axios from 'axios'
 export default {
+  name: 'Createid' ,
 	data () {
 		return {
-			dialog :false
+      name: [],
+      email: [],
+      password: [],
+      password_confirmation: [],
+
+			dialog :false,
+      show_pass: true,
+      show_pass_confirmation: true,
+      formHasErrors: false,
 		}
-	}
+	},
+
+  computed: {
+    form () {
+      return {
+        name: null,
+        email: null,
+        password: null,
+        password_confirmation: null,
+      }
+    },
+  },
+
+  methods: {
+    open: function() {
+      this.show = true
+    },
+    cancel: function() {
+      Object.keys(this.form).forEach(f => {
+        this.$refs[f].reset()
+      })
+      this.show = false
+    },
+    submit: function() {
+      const url = 'http://localhost:3000/api/auth'
+      var params = new URLSearchParams();
+      params.append('name', this.name);
+      params.append('email', this.email);
+      params.append('password', this.password);
+      params.append('password_confirmation', this.password_confirmation);
+      axios.defaults.headers.common['Content-Type'] = 'application/json';
+      axios.post(url, params).then(
+        (response) => {
+          localStorage.setItem('access-token', response.headers['access-token'])
+          localStorage.setItem('client', response.headers['client'])
+          localStorage.setItem('uid', response.headers['uid'])
+          localStorage.setItem('token-type', response.headers['token-type'])
+          this.$router.push('Mypage')
+        },
+        (error) => {
+          return error
+        }
+      )
+    }
+  }
 }
+
+
 </script>
