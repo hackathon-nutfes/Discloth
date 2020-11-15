@@ -1,6 +1,7 @@
 <template> 
   <v-app>
     <v-content class="bg">
+    <h1>おしゃれを片手に</h1>
       <Login />
       <Createid />
     </v-content>
@@ -23,5 +24,19 @@
   background-image: url("../assets/bgimage.jpg");
   background-attachment: fixed;
   background-size: cover;
+}
+</style>
+
+<style>
+h1{
+  color:white;
+  text-align: center;
+  font-size: 110px;
+  padding: 15px 30px;
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  font-family: fantasy;
 }
 </style>
