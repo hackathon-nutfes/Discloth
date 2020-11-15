@@ -22,6 +22,12 @@
         class="my-2"
 				@click.stop="dialog1 = true"
       >
+      <v-icon
+      dark
+      left
+      >
+      mdi-animation
+      </v-icon>
 			Display
       </v-btn>
 			<v-btn
@@ -30,6 +36,12 @@
 				class="my-2"
 				@click.stop="dialog2 = true"
 			>
+      <v-icon
+      dark
+      left
+      >
+      mdi-align-horizontal-left
+      </v-icon>
 			Analysis
 			</v-btn>
       <v-btn
@@ -49,14 +61,14 @@
       max-width="600"
 			hide-overlay
     >
-    <Analysis />
+    <Display />
    </v-dialog>
      <v-dialog
       v-model="dialog2"
       max-width="600"
 			hide-overlay
       >
-      <Display />
+      <Analysis />
      </v-dialog>
 
     </v-row>
