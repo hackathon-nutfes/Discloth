@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       # resources :users
       get "users/index" => "users#index"
       get "users/show" => "users#show"
+      get "users/items" => "users#get_user_items"
     end
   end
   namespace :api do
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
       registrations: 'api/auth/registrations'
     }
   end
+
 
 end
 
