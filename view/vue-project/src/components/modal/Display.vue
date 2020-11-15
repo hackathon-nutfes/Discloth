@@ -5,12 +5,59 @@
 			height="600"
 			>
         <v-card-title class="headline">
-          Use Google's location service?
+          WHICH ONE
         </v-card-title>
 
         <v-card-text>
-          Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+          Keep looking. Don’t settle.
         </v-card-text>
 
+      <v-divider></v-divider>
+
+      <v-row align-content="center">
+      <v-col cols="6" align="center">
+        <v-img src="../../assets/bgimage.jpg"></v-img>
+       </v-col>
+      <v-col cols="6">
+        <v-img src="../../assets/bgimage.jpg"></v-img>
+      </v-col>
+      </v-row>
+      <v-divider></v-divider>
+
+
+      <v-row align-content=center>
+      <v-col cols="6">
+        <v-img src="../../assets/bgimage.jpg"></v-img>
+       </v-col>
+      <v-col cols="6">
+        <v-img src="../../assets/bgimage.jpg"></v-img>
+      </v-col>
+      </v-row>
+      <v-divider></v-divider>
+ 
+
+      <v-row align-content=center>
+      <v-col cols="6">
+        <v-img src="../../assets/bgimage.jpg"></v-img>
+       </v-col>
+      <v-col cols="6">
+        <v-img src="../../assets/bgimage.jpg"></v-img>
+      </v-col>
+      </v-row>
+      <v-divider></v-divider>
+ 
+
+      <v-row align-content=center>
+      <v-col cols="6">
+        <v-img src="../../assets/bgimage.jpg"></v-img>
+       </v-col>
+      <v-col cols="6">
+        <v-img src="../../assets/bgimage.jpg"></v-img>
+      </v-col>
+      </v-row>
+      <v-divider></v-divider>
+ 
+      <v-row></v-row>
+      <v-row></v-row>
       </v-card>
 </template>
